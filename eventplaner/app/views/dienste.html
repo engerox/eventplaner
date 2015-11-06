@@ -1,0 +1,82 @@
+<div class="container" ng-show="step === 1">
+	<form novalidate class="css-form">
+	<div class="row">
+		<div class="col-xs-12">
+		<h4>Dienst-Admintool</h4>
+		Suche: <input ng-model="query">
+		</div>
+	</div>	
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			ID:
+		</div>
+		<div class="col-xs-6">
+			<input type="integer" class="form-control" ng-model="user.id" required ng-hide="disableId"/>
+			<button ng-click="disableId = !disableId">toggle</button>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Veranstalter:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="user.veranstalter" required />
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Qualifikation:
+		</div>
+		<div class="col-xs-8">
+			<form name="quali" ng-model="user.quali" required>
+		    <select name="singleSelect" ng-model="data.singleSelect">
+		    <option value="SH">SH</option>
+		    <option value="RH">RH</option>
+		 </select><br>
+		</div>
+		
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Datum:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="user.datum" required/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-12">
+			<input type="submit" class="btn btn-success" ng-click="save()" value="Save" />
+			<button ng-click="step = 2">Weiter</button>
+		</div>
+	</div>
+	</form>
+	<div class="row" style="margin-top:50px">
+		<div class="col-xs-12">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>Veranstalter</th>
+						<th>Datum</th>
+						<th>delete</th>
+						<th>update</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="u in users | filter:query">
+						<th><input type="text" ng-model="u.id"/></th>
+						<th><input type="text" ng-model="u.veranstalter"/></th>
+						<th><input type="text" ng-model="u.datum"/></th>
+						<th><input type="submit" ng-click="delete(u._id, $index)" value="Delete" /></th>
+						<th><input type="submit" ng-click="update(u)" value="update" /></th>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div ng-show="step === 2">
+Step 2
+</div>

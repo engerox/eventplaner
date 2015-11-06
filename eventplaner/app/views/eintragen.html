@@ -1,0 +1,129 @@
+<div class="container" ng-show="step === 1">
+	<div class="row"l>
+		<div class="col-xs-12">
+		<h4>Eintragen</h4>
+		Suche: <input ng-model="userQuery" placeholder="Suchbegriff...">
+		</div>
+	</div>	
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+		Personalnummer:
+		</div>
+		<div class="col-xs-6">
+			<input type="integer" class="form-control" ng-model="user.id" required placeholder="ID" />
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Vorname:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="user.vorname" required placeholder="Vorname"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Nachname:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="user.name" required placeholder="Nachname"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Qualifikation:
+		</div>
+		<div class="col-xs-8">
+		    <select name="singleSelect" ng-model="user.quali">
+		    	<option value="SH">SH</option>
+		    	<option value="RH">RH</option>
+		 	</select><br>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Tak.-Qualifikation:
+		</div>
+		<div class="col-xs-8">
+			<select name="singleSelect" ng-model="user.tquali">
+		    <option value="ZF">ZF</option>
+		    <option value="GF">GF</option>
+		    <option value="TF">TF</option>
+		 	</select><br>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			HLW-Schein:
+		</div>
+		<div class="col-xs-8">
+		    <select name="singleSelect" ng-model="user.schein">
+		    <option value="yes">Ja</option>
+		    <option value="no">Nein</option>
+		 </select><br>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-12">
+			<input class="btn btn-success" ng-click="step = 2" value="Weiter" />
+		</div>
+	</div>
+</div>	
+
+<div data-ng-show="step === 2">
+	<div class="row">
+		<div class="col-xs-12">
+		<h4>Dienst-Admintool</h4>
+		Suche: <input ng-model="eventQuery" placeholder="Suchbegriff...">
+		</div>
+	</div>	
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			V.-Nummer:
+		</div>
+		<div class="col-xs-2">
+			<input type="integer" class="form-control" ng-model="event.id" placeholder="V.-Nr."/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Veranstalter:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="event.veranstalter" required placeholder="Veranstalter"/>
+		</div>
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Qualifikation:
+		</div>
+		<div class="col-xs-8">
+			<select name="singleSelect" ng-model="event.singleSelect">
+		    <option value="SH">SH</option>
+		    <option value="RH">RH</option>
+		 </select><br>
+		</div>
+		
+	</div>
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Datum:
+		</div>
+		<div class="col-xs-8">
+			<input type="text" class="form-control" ng-model="event.datum" required placeholder="dd/mm/yyyy"/>
+		</div>
+	</div>
+		<div class="row" style="margin-top:20px">
+		<div class="col-xs-2">
+			Bemerkungen:
+		</div>
+		<div class="col-xs-2">
+			<input type="text" class="form-control" data-ng-model="event.bemerkungen" required placeholder="Bemerkungen"/>
+		</div>
+		
+	<div class="row" style="margin-top:20px">
+		<div class="col-xs-12">
+			<input type="submit" class="btn btn-success" ng-click="save()" value="Save" />
+		</div>
+	</div>
+</div>
